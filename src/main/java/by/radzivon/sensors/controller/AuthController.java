@@ -23,7 +23,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("auth/singup")
+    @PostMapping("auth/signup")
     private ResponseEntity singUp(@RequestBody @Valid SignUpForm signUpForm) throws ResourceNotFoundException {
         return authService.signUp(signUpForm);
     }
