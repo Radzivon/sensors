@@ -33,10 +33,10 @@ public class Sensor implements Serializable {
     private String description;
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "unit_id", referencedColumnName = "id")
     private Unit unit;
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "type_id", referencedColumnName = "id")
     private Type type;
 }

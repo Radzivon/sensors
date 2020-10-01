@@ -1,13 +1,10 @@
 package by.radzivon.sensors.model.entity;
 
-import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -20,6 +17,11 @@ public class Type implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    @Column(unique = true)
     private String value;
+    @ToString.Exclude
+    @OneToOne(mappedBy = "type")
+    private Sensor sensor;
+    @OneToMany(mappedBy = "type")
+    private List<Unit> units;
 }

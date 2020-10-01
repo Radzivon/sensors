@@ -12,7 +12,7 @@ public interface SensorService {
 
     void update(Long id, Sensor sensor) throws ResourceNotFoundException;
 
-    void save(Sensor sensor);
+    void save(Sensor sensor) throws ResourceNotFoundException;
 
     void delete(Sensor sensor);
 }

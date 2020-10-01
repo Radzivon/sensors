@@ -39,9 +39,9 @@ public class SensorController {
         return sensorService.getAll(paging).map(this::convertToDto);
     }
 
-    @PostMapping(value = {"sensor/add"})
+    @PostMapping(value = {"sensor/save"})
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveCargo(@Valid @RequestBody SensorDto cargoDto) {
+    public void saveCargo(@Valid @RequestBody SensorDto cargoDto) throws ResourceNotFoundException {
         sensorService.save(Mapper.map(cargoDto, Sensor.class));
     }
 
