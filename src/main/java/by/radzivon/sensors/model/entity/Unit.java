@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -19,8 +20,8 @@ public class Unit implements Serializable {
     @Column(unique = true)
     private String value;
     @ToString.Exclude
-    @OneToOne(mappedBy = "unit")
-    private Sensor sensor;
+    @OneToMany(mappedBy = "unit")
+    private List<Sensor> sensor;
     @ManyToOne
     @JoinColumn(name = "FK_typeId")
     private Type type;

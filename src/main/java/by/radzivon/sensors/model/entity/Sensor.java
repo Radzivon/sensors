@@ -32,11 +32,11 @@ public class Sensor implements Serializable {
     @NotNull
     private String description;
     @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "unit_id", referencedColumnName = "id")
     private Unit unit;
     @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "type_id", referencedColumnName = "id")
     private Type type;
 }

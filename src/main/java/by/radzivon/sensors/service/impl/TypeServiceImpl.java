@@ -7,6 +7,8 @@ import by.radzivon.sensors.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TypeServiceImpl implements TypeService {
 
@@ -21,5 +23,10 @@ public class TypeServiceImpl implements TypeService {
     public Type getById(Long id) throws ResourceNotFoundException {
         return typeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Type doesn't exist with id " + id));
+    }
+
+    @Override
+    public List<Type> getAll() {
+       return  typeRepository.findAll();
     }
 }

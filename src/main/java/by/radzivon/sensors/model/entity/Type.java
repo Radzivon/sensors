@@ -20,8 +20,8 @@ public class Type implements Serializable {
     @Column(unique = true)
     private String value;
     @ToString.Exclude
-    @OneToOne(mappedBy = "type")
-    private Sensor sensor;
+    @OneToMany(mappedBy = "type")
+    private List<Sensor> sensor;
     @OneToMany(mappedBy = "type")
     private List<Unit> units;
 }
